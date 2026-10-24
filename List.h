@@ -5,6 +5,7 @@
 #include <string>
 #include <utility>
 #include <algorithm>
+#include <list>
 using namespace std;
 
 template <typename Object>
@@ -29,7 +30,10 @@ class A5ListADia
 
   public:
 
-
+  string author () {
+    string name = "Anthony Diaz | 134646574";
+    return name;
+  }
 
     class const_iterator
     {
@@ -318,12 +322,31 @@ class A5ListADia
       } erase( itr );
     }
 
-  void slice() {
-
+  A5ListADia<Object> slice( int index, int count) {
+      A5ListADia <Object> copy;
+    if (index < 0 || index >= theSize) {
+      throw std::out_of_range{"Index out of range"};
     }
-  void merge() {
-
+    if (count < 0 || count > theSize - index) {
+      throw std::out_of_range{"Count out of range"};
     }
+      iterator itr = begin();
+      for (int i = 0; i < index; ++i) {
+        ++itr;
+      }
+      for (int i = 0; i < count; ++i) {
+        copy.push_back( *itr );
+        ++itr;
+      }
+      return copy;
+    }
+
+  void merge(const A5ListADia<Object> & rhs) {
+      for (auto itr = rhs.begin(); itr != rhs.end(); ++itr) {
+        push_back( *itr );
+      }
+    }
+
 
   private:
     int   theSize;
