@@ -5,7 +5,6 @@
 #include <string>
 #include <utility>
 #include <algorithm>
-#include <list>
 using namespace std;
 
 template <typename Object>
@@ -258,11 +257,6 @@ class A5ListADia
 
     void pop_back( )
       { erase( --end( ) ); }
-
-
-
-
-
     // Insert x before itr.
     iterator insert( iterator itr, const Object & x )
     {

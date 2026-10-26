@@ -22,8 +22,9 @@ int randomNumberGenerator() {
 // any list.
 void print_List(const A5ListADia<int> & numbers) {
     for (auto itr = numbers.begin(); itr != numbers.end(); ++itr) {
-        cout << *itr << " " << endl;
+        cout << *itr << " ";
     }
+    cout << endl;
 }
 
 int main() {
@@ -50,12 +51,14 @@ int main() {
     list1.remove_at(4);
     print_List(list1);
 
-    cout << endl << "Here is the slice(1,3) function for the third list:" << endl;
+    cout << endl << "Here is the list1.slice(1,3) function for the third list:" << endl;
     A5ListADia<int> list3 = list1.slice(1, 3);
     print_List(list3);
+    cout << "And to show list 1 is unaffected:" << endl;
+    print_List(list1);
 
     cout << endl << "Here is the merge() function with list1 and list2..." << endl;
-    cout << endl << "Before the merge:" << endl;
+    cout << "Before the merge:" << endl;
 
     cout << "List1:" << endl;
     print_List(list1);
@@ -65,7 +68,12 @@ int main() {
 
     cout << endl << "After merge:" << endl;
     list1.merge(list2);
+    cout << "List1:" << endl;
     print_List(list1);
+    cout << "List2:" << endl;
+    print_List(list2);
+
+
 
     return 0;
 }
